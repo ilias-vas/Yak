@@ -1,5 +1,5 @@
-#include "game.hpp"
-#include "window.hpp"
+#include "include/game.hpp"
+#include "include/window.hpp"
 
 int main() {
     auto w = engine::createWindow("Test", 1920, 1080);

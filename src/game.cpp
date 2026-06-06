@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include "../include/game.hpp"
 #include "SDL3/SDL_video.h"
 void engine::loop(SDL_Window* window) {
     bool done = false;

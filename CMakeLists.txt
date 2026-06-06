@@ -28,8 +28,8 @@ target_link_libraries(imgui PUBLIC SDL3::SDL3)
 
 add_executable(engine WIN32
     main.cpp
-    game.cpp
-    window.cpp
+    src/game.cpp
+    src/window.cpp
 )
 
 target_link_libraries(engine PRIVATE imgui)
