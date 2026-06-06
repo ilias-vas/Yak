@@ -2,7 +2,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 
-SDL_Window* engine::createWindow(std::string title, int w, int h) {
+SDL_Window* Yak::createWindow(std::string title, int w, int h) {
     SDL_Window* window;        // Declare a pointer
     SDL_Init(SDL_INIT_VIDEO);  // Initialize SDL3
 
@@ -18,4 +18,9 @@ SDL_Window* engine::createWindow(std::string title, int w, int h) {
     );
 
     return nullptr;
+}
+
+void Yak::destroyWindow(SDL_Window* window) {
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }

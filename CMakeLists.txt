@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(engine LANGUAGES CXX)
+project(Yak LANGUAGES CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -27,11 +27,12 @@ target_include_directories(imgui PUBLIC
 
 target_link_libraries(imgui PUBLIC SDL3::SDL3)
 
-add_executable(engine
+add_executable(Yak
     main.cpp
     src/editor/editor.cpp
     src/game.cpp
     src/window.cpp
+    src/input.cpp
 )
 
-target_link_libraries(engine PRIVATE imgui)
+target_link_libraries(Yak PRIVATE imgui)

@@ -3,5 +3,6 @@
 #include "include/window.hpp"
 
 int main() {
-    editor::init();
+    auto w = Yak::createWindow("test", 500, 500);
+    Yak::destroyWindow(w);
 }
