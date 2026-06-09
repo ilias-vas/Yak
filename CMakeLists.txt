@@ -9,6 +9,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIG>")
 set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendored/imgui")
 
 add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
+add_subdirectory(vendored/SDL_image EXCLUDE_FROM_ALL)
 
 add_library(imgui STATIC
     ${IMGUI_DIR}/imgui.cpp
@@ -25,7 +26,7 @@ target_include_directories(imgui PUBLIC
     ${IMGUI_DIR}/backends
 )
 
-target_link_libraries(imgui PUBLIC SDL3::SDL3)
+target_link_libraries(imgui PUBLIC SDL3_image::SDL3_image SDL3::SDL3)
 
 add_executable(Yak
     main.cpp

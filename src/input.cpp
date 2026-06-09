@@ -11,6 +11,5 @@ bool Yak::getNextEvent(bool done) {
         }
     }
     // Do game logic, present a frame, etc.
-    // Close and destroy the window
     return done;
 }
