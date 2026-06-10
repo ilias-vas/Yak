@@ -4,7 +4,6 @@
 #include "include/window.hpp"
 
 int main() {
-    auto w{Yak::createWindow("test", 500, 500)};
+    auto w = Yak::createWindowAndRenderer("test", 800, 600);
     Yak::gameLoop(w);
-    Yak::destroyWindow(w);
 }

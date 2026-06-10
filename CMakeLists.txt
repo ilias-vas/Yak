@@ -34,6 +34,7 @@ add_executable(Yak
     src/game.cpp
     src/window.cpp
     src/input.cpp
+    src/graphics.cpp
 )
 
 target_link_libraries(Yak PRIVATE imgui)
