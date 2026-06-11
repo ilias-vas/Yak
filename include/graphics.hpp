@@ -7,11 +7,13 @@
 #include <SDL3/SDL_main.h>
 #include <optional>
 #include <utility>
+#include "alias.hpp"
+
 
 namespace Yak {
-    std::optional<std::pair<SDL_FRect, SDL_Texture*>>
-    drawSprite(const std::string&                                    filename,
-               std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer);
+    spritePair drawSprite(const std::string& filename, winRen windowRenderer, float x, float y);
+    void renderSprite(winRen windowRenderer, spritePair sprite);
+    void bindSpriteToWindow(spritePair& sprite, float width, float height);
 }
 
 #endif

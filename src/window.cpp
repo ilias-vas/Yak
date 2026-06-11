@@ -44,10 +44,16 @@ void Yak::destroyWindow(SDL_Window* window) {
     return;
 }
 
-void Yak::destroyWindowAndRenderer(
-        const std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer) {
+void Yak::destroyWindowAndRenderer(const std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer) {
     SDL_DestroyRenderer(windowRenderer->second);
     SDL_DestroyWindow(windowRenderer->first);
     SDL_Quit();
     return;
+}
+
+void Yak::cleanupAfterSprite(winRen windowRenderer, spritePair sprite) {
+    SDL_DestroyTexture(sprite.value().second);
+    SDL_DestroyRenderer(windowRenderer.value().second);
+    SDL_DestroyWindow(windowRenderer.value().first);
+    SDL_Quit();
 }

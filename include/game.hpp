@@ -7,9 +7,10 @@
 #include <SDL3/SDL_main.h>
 #include <optional>
 #include <utility>
+#include "alias.hpp"
 
 namespace Yak {
-    void gameLoop(std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer);
+    void gameLoop(winRen& windowRenderer);
 }
 
 #endif

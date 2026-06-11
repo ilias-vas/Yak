@@ -8,9 +8,7 @@
 #include "SDL3_image/SDL_image.h"
 #include <optional>
 
-std::optional<std::pair<SDL_FRect, SDL_Texture*>>
-Yak::drawSprite(const std::string&                                    filename,
-                std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer) {
+spritePair Yak::drawSprite(const std::string& filename, winRen windowRenderer, float x, float y) {
     // create surface
     SDL_Surface* loadedSurface = IMG_Load(filename.c_str());
     if (!loadedSurface) {
@@ -28,10 +26,27 @@ Yak::drawSprite(const std::string&                                    filename,
         return std::nullopt;
     }
 
-    // create sprite and set sprite speed
-    SDL_FRect spriteRect = {100.0f, 100.0f, static_cast<float>(loadedSurface->w),
+    // create sprite and set sprite pos
+    SDL_FRect spriteRect = {x, y, static_cast<float>(loadedSurface->w),
                             static_cast<float>(loadedSurface->h)};
     SDL_DestroySurface(loadedSurface);
 
     return std::make_pair(spriteRect, spriteTexture);
+}
+
+void Yak::renderSprite(winRen windowRenderer, spritePair sprite) {
+    SDL_SetRenderDrawColor(windowRenderer->second, 30, 30, 30, 255);
+    SDL_RenderClear(windowRenderer->second);
+    SDL_RenderTexture(windowRenderer.value().second, sprite.value().second, nullptr,
+                      &sprite.value().first);
+    SDL_RenderPresent(windowRenderer->second);
+}
+
+void Yak::bindSpriteToWindow(spritePair& sprite, float width, float height) {
+    if (sprite.value().first.x < 0.0f) sprite.value().first.x = 0.0f;
+    if (sprite.value().first.y < 0.0f) sprite.value().first.y = 0.0f;
+    if (sprite.value().first.x + sprite.value().first.w > width)
+        sprite.value().first.x = width - sprite.value().first.w;
+    if (sprite.value().first.y + sprite.value().first.h > height)
+        sprite.value().first.y = height - sprite.value().first.h;
 }

@@ -7,13 +7,15 @@
 #include <SDL3/SDL_main.h>
 #include <optional>
 #include <string>
+#include "alias.hpp"
+
 
 namespace Yak {
-    SDL_Window*                                          createWindow(const std::string& title, int w, int h);
-    std::optional<std::pair<SDL_Window*, SDL_Renderer*>> createWindowAndRenderer(const std::string& title,
-                                                                                 int w, int h);
-    void                                                 destroyWindow(SDL_Window* window);
+    SDL_Window* createWindow(const std::string& title, int w, int h);
+    std::optional<std::pair<SDL_Window*, SDL_Renderer*>> createWindowAndRenderer(const std::string& title,int w, int h);
+    void destroyWindow(SDL_Window* window);
     void destroyWindowAndRenderer(const std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer);
+    void cleanupAfterSprite(winRen windowRenderer, spritePair sprite);
 }  // namespace Yak
 
 #endif
