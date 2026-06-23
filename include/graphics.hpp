@@ -12,7 +12,7 @@
 
 namespace Yak {
     spritePair drawSprite(const std::string& filename, winRen windowRenderer, float x, float y);
-    void renderSprite(winRen windowRenderer, spritePair sprite);
+    void renderSprite(winRen& windowRenderer, spritePair sprite);
     void bindSpriteToWindow(spritePair& sprite, float width, float height);
 }
 

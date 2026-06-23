@@ -30,11 +30,13 @@ target_link_libraries(imgui PUBLIC SDL3_image::SDL3_image SDL3::SDL3)
 
 add_executable(Yak
     main.cpp
+    vendored/miniaudio/miniaudio.cpp
     src/editor/editor.cpp
     src/game.cpp
     src/window.cpp
     src/input.cpp
     src/graphics.cpp
+    src/audio.cpp
 )
 
 target_link_libraries(Yak PRIVATE imgui)

@@ -12,7 +12,7 @@
 
 namespace Yak {
     SDL_Window* createWindow(const std::string& title, int w, int h);
-    std::optional<std::pair<SDL_Window*, SDL_Renderer*>> createWindowAndRenderer(const std::string& title,int w, int h);
+    winRen createWindowAndRenderer(const std::string& title,int w, int h);
     void destroyWindow(SDL_Window* window);
     void destroyWindowAndRenderer(const std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer);
     void cleanupAfterSprite(winRen windowRenderer, spritePair sprite);

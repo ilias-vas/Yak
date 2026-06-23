@@ -2,6 +2,7 @@
 #include "../include/graphics.hpp"
 #include "../include/input.hpp"
 #include "../include/window.hpp"
+#include "../include/audio.hpp"
 #include "SDL3/SDL_keyboard.h"
 #include "SDL3/SDL_stdinc.h"
 #include "SDL3/SDL_timer.h"
@@ -12,6 +13,9 @@ void Yak::gameLoop(winRen& windowRenderer) {
 
     const float spriteSpeed = 500.0f;
     spritePair sprite = Yak::drawSprite("/Users/ilias/projects/yak/dog.png", windowRenderer, 0, 0);
+
+    auto* audioEngine = Yak::initAudioEngine().value();
+    Yak::playSoundOnce("../sound.mp3", audioEngine);
 
     Uint64 lastTime = SDL_GetPerformanceCounter();
     while (!done) {
@@ -26,5 +30,6 @@ void Yak::gameLoop(winRen& windowRenderer) {
 
         Yak::renderSprite(windowRenderer, sprite);
     }
+    Yak::cleanupAudioEngine(audioEngine);
     Yak::cleanupAfterSprite(windowRenderer, sprite);
 }

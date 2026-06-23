@@ -1,6 +1,6 @@
 #include "../include/window.hpp"
+#include "../include/alias.hpp"
 #include "SDL3/SDL_render.h"
-#include "SDL3/SDL_surface.h"
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <optional>
@@ -26,8 +26,7 @@ SDL_Window* Yak::createWindow(const std::string& title, int w, int h) {
     return window;
 }
 
-std::optional<std::pair<SDL_Window*, SDL_Renderer*>> Yak::createWindowAndRenderer(const std::string& title,
-                                                                                  int w, int h) {
+winRen Yak::createWindowAndRenderer(const std::string& title, int w, int h) {
     SDL_Window*   window = nullptr;
     SDL_Renderer* renderer = nullptr;
     if (!SDL_CreateWindowAndRenderer(title.c_str(), w, h, SDL_WINDOW_OPENGL, &window, &renderer)) {

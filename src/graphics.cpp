@@ -34,7 +34,7 @@ spritePair Yak::drawSprite(const std::string& filename, winRen windowRenderer, f
     return std::make_pair(spriteRect, spriteTexture);
 }
 
-void Yak::renderSprite(winRen windowRenderer, spritePair sprite) {
+void Yak::renderSprite(winRen& windowRenderer, spritePair sprite) {
     SDL_SetRenderDrawColor(windowRenderer->second, 30, 30, 30, 255);
     SDL_RenderClear(windowRenderer->second);
     SDL_RenderTexture(windowRenderer.value().second, sprite.value().second, nullptr,
