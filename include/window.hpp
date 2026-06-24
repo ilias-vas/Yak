@@ -1,5 +1,4 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
 #include "SDL3/SDL_render.h"
 #include "SDL3/SDL_video.h"
@@ -17,5 +16,3 @@ namespace Yak {
     void destroyWindowAndRenderer(const std::optional<std::pair<SDL_Window*, SDL_Renderer*>>& windowRenderer);
     void cleanupAfterSprite(winRen windowRenderer, spritePair sprite);
 }  // namespace Yak
-
-#endif

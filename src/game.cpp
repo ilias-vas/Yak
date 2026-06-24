@@ -12,10 +12,10 @@ void Yak::gameLoop(winRen& windowRenderer) {
     bool done = false;
 
     const float spriteSpeed = 500.0f;
-    spritePair sprite = Yak::drawSprite("/Users/ilias/projects/yak/dog.png", windowRenderer, 0, 0);
+    spritePair sprite = Yak::drawSprite("assets/dog.png", windowRenderer, 0, 0);
 
     auto* audioEngine = Yak::initAudioEngine().value();
-    Yak::playSoundOnce("../sound.mp3", audioEngine);
+    Yak::playSoundOnce("assets/sound.mp3", audioEngine);
 
     Uint64 lastTime = SDL_GetPerformanceCounter();
     while (!done) {

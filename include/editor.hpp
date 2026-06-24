@@ -1,8 +1,5 @@
-#ifndef EDITOR_H
-#define EDITOR_H
+#pragma once
 
 namespace editor {
     void init();
 }
-
-#endif

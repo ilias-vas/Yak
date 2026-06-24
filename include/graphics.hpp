@@ -1,5 +1,4 @@
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
+#pragma once
 
 #include "SDL3/SDL_rect.h"
 #include "SDL3/SDL_render.h"
@@ -15,5 +14,3 @@ namespace Yak {
     void renderSprite(winRen& windowRenderer, spritePair sprite);
     void bindSpriteToWindow(spritePair& sprite, float width, float height);
 }
-
-#endif

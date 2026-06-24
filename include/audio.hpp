@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../vendored/miniaudio/miniaudio.hpp"
 #include <optional>
 #include <string>

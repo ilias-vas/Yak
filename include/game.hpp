@@ -1,5 +1,4 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
 
 #include "SDL3/SDL_render.h"
 #include "SDL3/SDL_video.h"
@@ -12,5 +11,3 @@
 namespace Yak {
     void gameLoop(winRen& windowRenderer);
 }
-
-#endif
